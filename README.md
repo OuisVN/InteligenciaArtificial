@@ -1,2 +1,0 @@
-# InteligenciaArtificial
-Inteligencia Artificial
