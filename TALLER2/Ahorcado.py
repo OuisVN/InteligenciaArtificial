@@ -15,8 +15,10 @@
 ## Librería para ocultar la palabra secreta.
 ## Se utiliza para cifrar contraseñas o datos importantes.
 import getpass
-## Librerá para usar comandos de CMD.
+## Libreria para usar comandos de CMD.
 import os
+## Libreria para tiempo.
+import time
 
 def _Borrar():
     os.system("cls")
@@ -73,6 +75,7 @@ def _Ahorcado():
         ## If en donde si adivina la palabra secreta, se activa con un mensaje de ganador.
         if PalabraSecreta == Mostrar:
             print("¡Felicidades, has ganado!")
+            time.sleep(5)
             break
         
         ## Para que el usuario que va a jugar ponga una letra.
@@ -91,6 +94,7 @@ def _Ahorcado():
             ## Si la letra ya ha sido escrita y esta en la lista de Palabras Erroneas no contará como equivocación.
             if PalabrasErroneas.__contains__(letra):
                 print("Esta palabra ya la has intentado con anterioridad, prueba con otra.")
+                time.sleep(2)
             else:
                 
                 ## Si la letra no ha sido escrita con anterioridad si hará el conteo y agregará la letra en la lista
@@ -115,6 +119,8 @@ def _Ahorcado():
         print(" /|\ ")
         print(" / \ ")
         ## Final del muñeco pero muerto.
+        
+        time.sleep(5)
         
 ## Ver Función.        
 _Ahorcado()
