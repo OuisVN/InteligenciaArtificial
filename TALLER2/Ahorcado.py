@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[5]:
 
 
 ''' 
@@ -39,7 +39,7 @@ def _Ahorcado():
 
     while Intentos < 7:
         
-        ## Limpiar Pantalla
+        ## Limpiar Pantalla.
         _Borrar()
         
         ## Visual del Ahorcado.
@@ -75,6 +75,13 @@ def _Ahorcado():
         ## If en donde si adivina la palabra secreta, se activa con un mensaje de ganador.
         if PalabraSecreta == Mostrar:
             print("¡Felicidades, has ganado!")
+            
+            # Abre el archivo ganadas y agrega la palabra que se adivino.
+            with open("ganadas.txt", "a") as f:
+                f.write("%s \n" % (PalabraSecreta))
+            f.close
+            
+            ## time.sleep se utiliza para darle tiempo al programa que muestre el mensaje anterior.
             time.sleep(5)
             break
         
@@ -94,6 +101,8 @@ def _Ahorcado():
             ## Si la letra ya ha sido escrita y esta en la lista de Palabras Erroneas no contará como equivocación.
             if PalabrasErroneas.__contains__(letra):
                 print("Esta palabra ya la has intentado con anterioridad, prueba con otra.")
+                
+                ## time.sleep se utiliza para darle tiempo al programa que muestre el mensaje anterior.
                 time.sleep(2)
             else:
                 
@@ -105,11 +114,16 @@ def _Ahorcado():
         
     else:
         
-        ## Limpiar Pantalla
+        ## Limpiar Pantalla.
         _Borrar()
         
         ## If en donde si no logra adivinar la palabra secreta, se activa con un mensaje de perdedor.
         print("¡Has Perdido! La palabra era: ", PalabraSecreta)
+        
+        # Abre el archivo falladas y agrega la palabra que no se pudo acertar.
+        with open("falladas.txt", "a") as f:
+            f.write("%s \n" % (PalabraSecreta))
+        f.close
         
         print("")
         print("")
@@ -120,6 +134,7 @@ def _Ahorcado():
         print(" / \ ")
         ## Final del muñeco pero muerto.
         
+        ## time.sleep se utiliza para darle tiempo al programa que muestre el mensaje anterior (En este caso el muñeco).
         time.sleep(5)
         
 ## Ver Función.        
