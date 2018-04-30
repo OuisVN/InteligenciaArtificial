@@ -1,6 +1,5 @@
-#include <LiquidCrystal.h> // --> Librería para el Display.
-
 LiquidCrystal lcd(7, 6, 5, 4, 3, 2); // --> Display. Utiliza los pines 7, 6, 5, 4, 3, 2.
+Servo servoMotor; // --> Declaramos la variable servoMotor.
 
 int LEDVERDE1 = 8; // --> LEDVERDE en el pin 8.
 int LEDROJO1 = 9; // --> LEDROJO en el pin 9.
@@ -10,6 +9,7 @@ int PULSADOR1 = 12; // --> SWITCH o PULSADOR en el pin 12.
 
 void setup(){
   Serial.begin(9600); // --> Es para la comunicación con el computador. Abre el puerto serie y lo configura con velocidad de 9600 bps.
+  servoMotor.attach(13); // --> Iniciamos el servoMotor en el pin 13.
   lcd.begin(16, 2); // --> Display 16x2.
   lcd.setCursor(0, 1); // --> Posición en X y Y.
 
@@ -34,7 +34,7 @@ void loop(){
   long distancia= (0.017*tiempo); // --> Calculamos la distancia en centimetros.
 
   // Si distancia es igual a 10 CM... Y Si no...
-  if(opcion == 0 && distancia == 10){
+  if(opcion == 0 && distancia <= 10){
     digitalWrite(LEDVERDE1, HIGH); // --> LEDVERDE encendido.
     digitalWrite(LEDROJO1, LOW); // --> LEDROJO apagado.
     lcd.setCursor(0,0); // --> Posición X y Y.
@@ -56,12 +56,20 @@ void loop(){
     lcd.clear(); // --> Borramos lo que haya en el display.
     lcd.setCursor(0,0); // --> Posición X y Y.
     lcd.print("Hasta Luego"); // --> Mostramos en el display el mensaje de Hasta Luego en la posición 0X y 0Y.
+    servoMotor.write(180);
+    delay(6000);
+    servoMotor.write(90);
+    
   }
 
   // Si opcion es igual a 1 y la distancia es igual a 20, eso quiere decir que el carro ya se ha ido y puede continuar con otra persona.
   if(opcion == 1 && distancia == 20){
     lcd.clear(); // --> Borramos lo que haya en el display.
     opcion = 0;
+    servoMotor.write(180);
+    delay(500);
+    servoMotor.write(0);
+    delay(1000);
   }
   
   delay(500); // --> Retrasamos los mensajes 500 milisegundos.
