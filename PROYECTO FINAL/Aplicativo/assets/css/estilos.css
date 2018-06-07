@@ -1,0 +1,103 @@
+html{
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+body{
+	margin: 0px;
+	padding: 0px;
+	color: #2b2a29;
+	background-color: #F9EAD7;
+}
+
+hr{
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #145C91;
+	margin: 1em 0;
+	padding: 0;
+}
+
+td{
+	vertical-align: middle!important;
+}
+
+a{
+	text-decoration:none!important;
+	color: #000000;
+}
+
+.izquierda{
+	float: left!important;
+}
+
+.derecha{
+	float: right!important;
+}
+
+.tamaño_10{
+	font-size: 10px!important;
+}
+
+.tamaño_11{
+	font-size: 11px!important;
+}
+
+.tamaño_12{
+	font-size: 12px!important;
+}
+
+.tamaño_13{
+	font-size: 13px!important;
+}
+
+.tamaño_14{
+	font-size: 14px!important;
+}
+
+.titulo{
+	background-color: #fff;
+	font-family: 'Segoe Ui';
+	font-size: 15px;
+	padding: 10px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.contenido{
+	background-color: #fff;
+	padding: 10px;
+	margin-bottom: 10px;
+	overflow: hidden;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.titulo.azul{
+	background-color: #145C91;
+	color: #FFFFFF;
+}
+
+.contenido.azul{
+	border-bottom: 3px solid #145C91;
+}
+
+.sombra{
+	-webkit-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.3);
+}
+
+.dataTables_wrapper .myfilter .dataTables_filter{
+    float:left
+}
+
+.dataTables_wrapper .mylength .dataTables_length{
+    float:right
+}
+
+.tooltip-inner{
+	white-space:nowrap!important;
+	max-width:none!important;
+}
